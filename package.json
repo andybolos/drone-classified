@@ -1,0 +1,26 @@
+{
+  "name": "drone-classified",
+  "version": "1.0.0",
+  "description": "Buy and Sell used UAV/Drones",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andybolos/drone-classified.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andybolos/drone-classified/issues"
+  },
+  "homepage": "https://github.com/andybolos/drone-classified#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.2"
+  }
+}
