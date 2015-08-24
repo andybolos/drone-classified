@@ -7,6 +7,14 @@ var postSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    category: {
+        type: String,
+        required: true,
+        enum: [
+            'new',
+            'used'
+        ]
+    },
     price: {
         type: Number,
         required: true,

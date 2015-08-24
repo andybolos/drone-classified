@@ -1,6 +1,8 @@
-'use strict'
+'use strict';
 
-//**********  Dependencies  **********//
+/**
+ * Dependencies
+ */
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -19,6 +21,7 @@ var app = express();
 
 //**********  Middleware  **********//
 
+app.use(express.static('./public'))
 app.use(bodyParser());
 app.use(cors());
 
@@ -39,7 +42,7 @@ app.delete('/api/post/:id', PostCtrl.delete);
 
 //**********  Connections  **********//
 
-var port = 3766
+var port = 3766;
 var mongoUri = 'mongodb://localhost:27017/droneclassifieds';
 
 mongoose.set('debug', true);

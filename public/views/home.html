@@ -1,0 +1,14 @@
+
+<div class="">
+    <h1>Listings</h1><br>
+    <a href="#/dashboard">Secret</a><br>
+    <a href="#/signup">Sign up / Login</a>
+    <div class="" ng-repeat="post in posts">
+        <ul>
+            <li>{{ post.title }}</li>
+            <li>{{ post.price }}</li>
+            <li>{{ post.category }}</li>
+            <li>{{ post.description }}</li>
+        </ul>
+    </div>
+</div>

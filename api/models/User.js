@@ -10,11 +10,15 @@ var userSchema = new mongoose.Schema({
         maxlength: 28,
         minlength: 6
     },
-    username: {
+    firstname: {
         type: String,
         lowercase: true,
-        required: true,
-        unique: true,
+        required: true
+    },
+    lastname: {
+        type: String,
+        lowercase: true,
+        required: true
     },
     password: {
         type: String,

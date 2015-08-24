@@ -35,7 +35,7 @@ module.exports = {
     },
 
     delete: function(req, res) {
-        User.findByIdAndRemove(req.params.id, function(err, result) {
+        User.findByIdAndRemove (req.params.id, function(err, result) {
             if(!err) {
                 res.send(result);
             } else {
