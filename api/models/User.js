@@ -7,7 +7,7 @@ var userSchema = new mongoose.Schema({
         lowercase: true,
         required: true,
         unique: true,
-        maxlength: 28,
+        maxlength: 38,
         minlength: 6
     },
     firstname: {
@@ -24,10 +24,13 @@ var userSchema = new mongoose.Schema({
         type: String,
         lowercase: true,
         required: true,
-        minlength: 8
+        // minlength: 8
     },
     listings: [
-
+        {id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Post'
+        }}
     ]
 
 });

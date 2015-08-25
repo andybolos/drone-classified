@@ -38,4 +38,16 @@ app.service('dataService', function($http, $q) {
         return dfd.promise;
     }
 
+    this.addUser = function(newUser) {
+        var dfd = $q.defer();
+        $http({
+            method: 'POST',
+            url: '/api/user',
+            data: newUser
+        }).then(function(response) {
+            dfd.resolve(response)
+        })
+        return dfd.promise;
+    }
+
 });

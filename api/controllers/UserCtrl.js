@@ -8,13 +8,14 @@ module.exports = {
             if(!err) {
                 res.send(result);
             } else {
-                return res.status(500).send(err);
+                return res.status(500).send('you broke here', err);
             }
         });
     },
 
     read: function(req, res) {
         User.find(req.query)
+        .populate('Post')
         .exec(function(err, result) {
             if(!err) {
                 res.send(result);
