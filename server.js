@@ -30,6 +30,12 @@ app.use(cors());
 
 app.post('/api/user', UserCtrl.create);
 app.get('/api/user', UserCtrl.read);
+
+/*
+New Used filter
+*/
+app.get('/api/user', UserCtrl.read)
+
 app.put('/api/user/:id', UserCtrl.update);
 app.delete('/api/user/:id', UserCtrl.delete);
 

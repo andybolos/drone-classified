@@ -1,22 +1,23 @@
-var app = angular.module('uav-c', ['ngRoute']);
+var app = angular.module('uav-c', ['ui.router']);
 
-app.config(function($routeProvider) {
-    $routeProvider
-    .when('/home', {
-        templateUrl: '../views/home.html',
-        controller: 'homeCtrl'
-    })
-    .when('/signup', {
-        templateUrl: '../views/signup.html',
-        controller: 'signupCtrl'
-    })
-    .when('/dashboard', {
-        templateUrl: '../views/dashboard.html',
-        controller: 'dashboardCtrl'
-    })
-    .otherwise({
-        redirectTo: '/home'
-    })
+app.config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/home');
 
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: '../views/home.html',
+            controller: 'homeCtrl'
+        })
+        .state('signup', {
+            url: '/signup',
+            templateUrl: '../views/signup.html',
+            controller: 'signupCtrl'
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: '../views/dashboard.html',
+            controller: 'dashboardCtrl'
+        })
 
 });
