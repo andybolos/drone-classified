@@ -4,7 +4,7 @@
     <h1>New Listing</h1>
         <form class="" ng-model="newPost">
             <select class="" name="user" ng-model="newPost.user" placeholder="Select User">
-                <option ng-repeat="user in users" ng-model="user">{{ user.firstname | uppercase }} {{ user.lastname | uppercase}} {{ user._id }}</option>
+                <option ng-repeat="user in users" ng-model="user">{{ user._id }}</option>
 
             </select>
             <input type="text" placeholder="Title" ng-model="newPost.title">
@@ -18,16 +18,30 @@
             <input type="button" name="name" value="Add Listing" ng-click="addPost(newPost)">
         </form>
 
-    <h2>My Listings</h2>
+    <h2>My Listings</h2><br>
     <div class="" ng-repeat="post in posts">
-        <ul>
+        <ul ng-hide="editPost">
             <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>
             <li>Title: {{ post.title }}</li>
             <li>Price: ${{ post.price }}</li>
             <li>Category: {{ post.category }}</li>
             <li>Description: {{ post.description }}</li>
         </ul>
+        <ul ng-hide="!editPost">
+            <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>
+            <li>Title: <input type="text" name="name" value="{{ post.title }}" ng-model="post.title"></li>
+            <li>Price: <input type="number" name="name" value="{{ post.price }}" ng-model="post.price"></li>
+            <li>Category: <select class="" name="" ng-model="post.category">
+                <option value="new">New</option>
+                <option value="used">Used</option>
+            </select><li>
+            <li>Description: <textarea name="name" rows="8" cols="40" ng-model="post.description">{{ post.description }}</textarea></li>
+        </ul>
         <button ng-click="deletePost(post._id)">Destroy</button>
+        <button ng-click="editPost = !editPost" ng-hide="editPost">Edit</button>
+        <button ng-hide="!editPost" ng-click="editPost = !editPost">Just Kidding</button>
+        <button ng-hide="!editPost"  ng-click="updatePost(post._id, post); editPost = !editPost" >Save</button>
+        <br><br>
 
     </div>
 

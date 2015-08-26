@@ -4,7 +4,7 @@ app.controller('homeCtrl', function($scope, dataService) {
 
 
     $scope.getData = function() {
-        dataService.getData().then(function(response) {
+        dataService.getPosts().then(function(response) {
             console.log(response.data);
             $scope.posts = response.data
         })

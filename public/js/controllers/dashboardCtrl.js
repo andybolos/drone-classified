@@ -6,22 +6,27 @@ app.controller('dashboardCtrl', function($scope, dataService) {
         console.log(newPost);
         $scope.newPost = "";
         dataService.addPost(newPost);
-        $scope.getData = function() {
-            dataService.getData().then(function(response) {
+        $scope.getPosts = function() {
+            dataService.getPosts().then(function(response) {
                 $scope.posts = response.data
             })
         };
-        $scope.getData();
+        $scope.getPosts();
     };
 
-    $scope.getData = function() {
-        dataService.getData().then(function(response) {
+    $scope.updatePost = function(id, postEdit) {
+        console.log(id, postEdit);
+        dataService.updatePost(id, postEdit).then(function(response) {
+        })
+    }
+
+    $scope.getPosts = function() {
+        dataService.getPosts().then(function(response) {
             $scope.posts = response.data
-            console.log(response.data);
         })
     };
 
-    $scope.getData();
+    $scope.getPosts();
 
     $scope.deletePost = function(postId) {
         console.log(postId);
@@ -31,7 +36,6 @@ app.controller('dashboardCtrl', function($scope, dataService) {
 
     $scope.getUsers = function() {
         dataService.getUsers().then(function(response) {
-            console.log(response.data);
             $scope.users = response.data;
         })
     }();

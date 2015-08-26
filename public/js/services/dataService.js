@@ -1,6 +1,6 @@
 app.service('dataService', function($http, $q) {
 
-    this.getData = function() {
+    this.getPosts = function() {
         var dfd = $q.defer();
         $http ({
             method: 'GET',
@@ -25,6 +25,19 @@ app.service('dataService', function($http, $q) {
         })
         return dfd.promise;
     };
+
+    this.updatePost = function(id, editPost) {
+        var dfd = $q.defer();
+        $http({
+            method: 'PUT',
+            url: '/api/post/' + id,
+            data: editPost
+        }).then(function(response) {
+            console.log(response);
+            dfd.resolve
+        })
+        return dfd.promise;
+    }
 
     this.deletePost = function(postId) {
         var dfd = $q.defer();

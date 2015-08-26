@@ -5,11 +5,12 @@
     <!-- Begin Listings -->
     <div class="list" ng-repeat="post in posts | orderBy:predicate:reverse | filter:stuff">
         <ul>
-            <li>{{ post.title }}</li>
-            <li>${{ post.price }}</li>
-            <li>{{ post.category }}</li>
-            <li>{{ post.description }}</li>
+            <li>Title: {{ post.title }}</li>
+            <li>Price: ${{ post.price }}</li>
+            <li>Category: {{ post.category }}</li>
+            <li>Description: {{ post.description }}</li>
         </ul>
+        <br>
     </div>
 
     <!-- Filter side bar -->
