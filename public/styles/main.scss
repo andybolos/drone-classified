@@ -1,0 +1,13 @@
+// Import reset.css //
+
+@import "reset.css";
+
+// Begin mobile first styles //
+.home {
+    padding: 10px;
+    font-size: 24px;
+
+    .list {
+        color: blue;
+    }
+}

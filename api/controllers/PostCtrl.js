@@ -15,6 +15,7 @@ module.exports = {
 
     read: function(req, res) {
         Post.find(req.query)
+        .populate('user')
         .exec(function(err, result) {
             if(!err) {
                 res.send(result);

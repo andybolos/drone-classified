@@ -24,12 +24,10 @@ var postSchema = new mongoose.Schema({
         required: true,
         maxlength: 700
     },
-    user_id: [
-        {id: {
+    user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
-        }}
-    ]
+        }
 
 });
 

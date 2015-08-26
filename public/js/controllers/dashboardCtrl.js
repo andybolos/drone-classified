@@ -17,6 +17,7 @@ app.controller('dashboardCtrl', function($scope, dataService) {
     $scope.getData = function() {
         dataService.getData().then(function(response) {
             $scope.posts = response.data
+            console.log(response.data);
         })
     };
 
