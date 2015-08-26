@@ -3,6 +3,10 @@
     <a href="#/home">Home</a>
     <h1>New Listing</h1>
         <form class="" ng-model="newPost">
+            <select class="" name="" ng-model="newPost.user_id">
+                <option ng-repeat="user in users">{{ user._id }}</option>
+
+            </select>
             <input type="text" placeholder="Title" ng-model="newPost.title">
             <select class="" name="" ng-model="newPost.category">
                 <option value="new">New</option>

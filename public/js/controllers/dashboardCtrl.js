@@ -21,11 +21,18 @@ app.controller('dashboardCtrl', function($scope, dataService) {
     };
 
     $scope.getData();
-    
+
     $scope.deletePost = function(postId) {
         console.log(postId);
         dataService.deletePost(postId);
         $scope.getData();
     }
+
+    $scope.getUsers = function() {
+        dataService.getUsers().then(function(response) {
+            console.log(response.data);
+            $scope.users = response.data;
+        })
+    }();
 
 });

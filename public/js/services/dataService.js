@@ -50,4 +50,17 @@ app.service('dataService', function($http, $q) {
         return dfd.promise;
     }
 
+    this.getUsers = function() {
+        var dfd = $q.defer();
+        $http ({
+            method: 'GET',
+            url: '/api/user'
+        }).then(function(response) {
+            dfd.resolve(response)
+        }), function(error) {
+            console.log('Error', error);
+        }
+        return  dfd.promise;
+    };
+
 });

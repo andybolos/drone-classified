@@ -7,6 +7,7 @@ app.controller('signupCtrl', function($scope, dataService) {
         dataService.addUser(user).then(function(response) {
             console.log(response);
         })
+        
         // $scope.form = '';
     };
 
