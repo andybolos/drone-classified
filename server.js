@@ -9,16 +9,28 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 //**********  Controllers  **********//
 
 var UserCtrl = require('./api/controllers/UserCtrl');
 var PostCtrl = require('./api/controllers/PostCtrl');
-
+var topSecret = require('./api/keys/keys');
 
 //**********  Start Express  **********//
 
 var app = express();
+
+/**
+ * Passort Essentials
+ */
+
+app.use(session({ secret: topSecret.passportSecret}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 //**********  Middleware  **********//
 
@@ -57,6 +69,7 @@ mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
     console.log("Database connecting...");
     console.log("Database connected at", mongoUri);
+    console.log("Database initialized");
 
 })
 
