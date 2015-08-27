@@ -1,8 +1,30 @@
 @import url(reset.css);
+.header {
+  outline: red 1px solid;
+  color: red;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center; }
+  .header p {
+    margin: 10px; }
+  .header a {
+    text-decoration: none;
+    color: green; }
+  .header .signup {
+    padding: 5px;
+    background: lime;
+    border-radius: 5px;
+    color: #fff; }
+
 .home {
   padding: 10px;
   font-size: 24px; }
   .home .list {
-    color: blue; }
+    outline: red 1px solid;
+    color: blue;
+    display: inline; }
+  .home .filter {
+    outline: red 1px solid;
+    color: lime; }
 
 /*# sourceMappingURL=main.css.map */

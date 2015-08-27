@@ -3,11 +3,46 @@
 @import "reset.css";
 
 // Begin mobile first styles //
+.header {
+    outline: red 1px solid;
+    color: red;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+    // display: inline;
+    p {
+        margin: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: green;
+    }
+
+    .signup {
+        padding: 5px;
+        background: lime;
+        border-radius: 5px;
+        color: #fff;
+
+
+    }
+}
+
+
+
 .home {
+
     padding: 10px;
     font-size: 24px;
 
+
     .list {
+        outline: red 1px solid;
         color: blue;
+        display: inline;
+    }
+    .filter {
+        outline: red 1px solid;
+        color: lime;
     }
 }
