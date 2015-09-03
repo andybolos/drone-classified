@@ -19,12 +19,22 @@
 .home {
   padding: 10px;
   font-size: 24px; }
-  .home .list {
+  .home .block_list {
     outline: red 1px solid;
     color: blue;
-    display: inline; }
+    padding: 10px;
+    position: relative; }
+    .home .block_list .thumbnail {
+      height: 115px;
+      width: 115px;
+      display: inline-block; }
+    .home .block_list .list {
+      display: inline-block;
+      position: absolute;
+      top: 10px; }
   .home .filter {
     outline: red 1px solid;
-    color: lime; }
+    color: lime;
+    display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

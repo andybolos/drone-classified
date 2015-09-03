@@ -24,10 +24,13 @@ var postSchema = new mongoose.Schema({
         required: true,
         maxlength: 700
     },
+    createdAt: {
+        type: String,
+    },
     user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
-        }
+    }
 
 });
 

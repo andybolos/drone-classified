@@ -4,6 +4,7 @@ module.exports = {
 
     create: function(req, res) {
         var newPost = new Post(req.body);
+        console.log(req.body);
         newPost.save(function(err, result) {
             if(!err) {
                 res.send(result);

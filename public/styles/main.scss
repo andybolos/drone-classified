@@ -2,6 +2,8 @@
 
 @import "reset.css";
 
+
+
 // Begin mobile first styles //
 .header {
     outline: red 1px solid;
@@ -36,13 +38,33 @@
     font-size: 24px;
 
 
-    .list {
+    .block_list {
         outline: red 1px solid;
         color: blue;
-        display: inline;
+        padding: 10px;
+        position: relative;
+
+        .thumbnail {
+            height: 115px;
+            width: 115px;
+            display: inline-block;
+        }
+
+        .list {
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+
+            .title {
+
+            }
+        }
     }
     .filter {
         outline: red 1px solid;
         color: lime;
+        display: inline-block;
+
+
     }
 }

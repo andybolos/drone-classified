@@ -2,19 +2,8 @@
 
 
 <div class="home">
-    <!-- Begin Listings -->
-    <div class="list" ng-repeat="post in posts | orderBy:predicate:reverse | filter:stuff">
-        <ul>
-            <li>Title: {{ post.title }}</li>
-            <li>Price: ${{ post.price }}</li>
-            <li>Category: {{ post.category }}</li>
-            <!-- <li>Description: {{ post.description }}</li> -->
-        </ul>
-        <br>
-    </div>
-
     <!-- Filter side bar -->
-    <div class="filter">
+    <div class="filter" ng-show="filter">
         <h2>Filter</h2>
         <h3>Categories</h3>
             <label>New<input type="radio" name="nu" value="new" ng-model="nu"></label>
@@ -33,4 +22,18 @@
             <li ng-click="ending()">Ending First</li>
         </ul> -->
     </div>
+    <!-- Begin Listings -->
+    <div class="block_list" ng-repeat="post in posts | orderBy:predicate:reverse | filter:stuff" ng-href="{{details}}">
+        <img ng-src="../styles/baby_turtle.jpg" alt="Thumbnail" class="thumbnail" />
+        <ul class="list">
+            <li class="title">Title: {{ post.title }}</li>
+            <li>Price: ${{ post.price }}</li>
+            <li>Category: {{ post.category }}</li>
+            <li>Date: {{ post.createdAt }}</li>
+            <!-- <li>Description: {{ post.description }}</li> -->
+        </ul>
+        <br>
+    </div>
+
+
 </div>

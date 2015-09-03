@@ -1,12 +1,10 @@
 <div class="">
     <h1>My Listings Dashboard</h1><br>
+    <h2><a href="/logout">Logout</a></h2><br>
+    <h1>User: {{ user.firstname | uppercase }} {{ user.lastname | uppercase}}</h1>
     <a href="#/home">Home</a>
     <h1>New Listing</h1>
         <form class="" ng-model="newPost">
-            <select class="" name="user" ng-model="newPost.user" placeholder="Select User">
-                <option ng-repeat="user in users" ng-model="user">{{ user._id }}</option>
-
-            </select>
             <input type="text" placeholder="Title" ng-model="newPost.title">
             <select class="" name="" ng-model="newPost.category">
                 <option value="new">New</option>
@@ -15,7 +13,7 @@
             <input type="number" placeholder="Price" ng-model="newPost.price">
             <textarea name="description" rows="8" cols="40" ng-model="newPost.description"></textarea>
             <!-- <input type="textbox" placeholder="Description" ng-model="newPost.description"> -->
-            <input type="button" name="name" value="Add Listing" ng-click="addPost(newPost)">
+            <input type="button" name="name" value="Add Listing" ng-click="addUserPost(newPost)">
         </form>
 
     <h2>My Listings</h2><br>
@@ -37,10 +35,10 @@
             </select><li>
             <li>Description: <textarea name="name" rows="8" cols="40" ng-model="post.description">{{ post.description }}</textarea></li>
         </ul>
-        <button ng-click="deletePost(post._id)">Destroy</button>
+        <button ng-click="deleteUserPost(post._id)">Destroy</button>
         <button ng-click="editPost = !editPost" ng-hide="editPost">Edit</button>
         <button ng-hide="!editPost" ng-click="editPost = !editPost">Just Kidding</button>
-        <button ng-hide="!editPost"  ng-click="updatePost(post._id, post); editPost = !editPost" >Save</button>
+        <button ng-hide="!editPost"  ng-click="updateUserPost(post._id, post); editPost = !editPost" >Save</button>
         <br><br>
 
     </div>

@@ -1,43 +1,50 @@
-app.controller('dashboardCtrl', function($scope, dataService) {
+app.controller('dashboardCtrl', function($scope, dataService, currentUser) {
     $scope.test = 'This is a test';
+    $scope.user = currentUser;
+    var userId = currentUser._id;
+    var now = moment();
+    console.log(now);
+    console.log(userId);
 
+    var getUserPosts = function(){
+        dataService.getUserPosts(userId).then(function(response) {
+            console.log(response.data);
+            $scope.posts = response.data;
+        });
+    };
+    getUserPosts();
 
-    $scope.addPost = function(newPost) {
-        console.log(newPost);
+    $scope.addUserPost = function(newPost) {
         $scope.newPost = "";
-        dataService.addPost(newPost);
-        $scope.getPosts = function() {
-            dataService.getPosts().then(function(response) {
-                $scope.posts = response.data
-            })
-        };
-        $scope.getPosts();
+        newPost.user = userId;
+        console.log(newPost);
+        dataService.addPost(newPost).then(function(response) {
+            console.log(response);
+        });
+        getUserPosts();
+        // $scope.getUserPosts = function() {
+            // })
+        // $scope.getUserPosts();
     };
 
-    $scope.updatePost = function(id, postEdit) {
-        console.log(id, postEdit);
-        dataService.updatePost(id, postEdit).then(function(response) {
+    $scope.updateUserPost = function(postId, postEdit) {
+        console.log(postEdit, 'userId', postId);
+        dataService.updateUserPost(postId, postEdit).then(function(response) {
         })
     }
 
-    $scope.getPosts = function() {
-        dataService.getPosts().then(function(response) {
+    $scope.getUserPosts = function(userId) {
+        dataService.getUserPosts(userId).then(function(response) {
             $scope.posts = response.data
         })
     };
 
-    $scope.getPosts();
-
-    $scope.deletePost = function(postId) {
+    $scope.deleteUserPost = function(postId) {
         console.log(postId);
         dataService.deletePost(postId);
-        $scope.getData();
+        getUserPosts();
     }
 
-    $scope.getUsers = function() {
-        dataService.getUsers().then(function(response) {
-            $scope.users = response.data;
-        })
-    }();
+
 
 });
