@@ -1,4 +1,4 @@
-<div class="">
+<div class="dashboard">
     <h1>My Listings Dashboard</h1><br>
     <h2><a href="/logout">Logout</a></h2><br>
     <h1>User: {{ user.firstname | uppercase }} {{ user.lastname | uppercase}}</h1>
@@ -12,18 +12,21 @@
             </select>
             <input type="number" placeholder="Price" ng-model="newPost.price">
             <textarea name="description" rows="8" cols="40" ng-model="newPost.description"></textarea>
+            <input type="file" images="images" accept="image/*"  ng-model="newPost.img" photo-convert>
             <!-- <input type="textbox" placeholder="Description" ng-model="newPost.description"> -->
             <input type="button" name="name" value="Add Listing" ng-click="addUserPost(newPost)">
         </form>
 
     <h2>My Listings</h2><br>
-    <div class="" ng-repeat="post in posts">
+    <div class="posts" ng-repeat="post in posts">
         <ul ng-hide="editPost">
             <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>
             <li>Title: {{ post.title }}</li>
             <li>Price: ${{ post.price }}</li>
             <li>Category: {{ post.category }}</li>
             <li>Description: {{ post.description }}</li>
+            <li>Expires: {{ post.expires }}</li>
+            <img ng-src="{{ post.img[0] }}" class="dashboard_thumbnail" />
         </ul>
         <ul ng-hide="!editPost">
             <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>

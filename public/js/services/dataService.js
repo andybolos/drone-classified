@@ -6,6 +6,11 @@ app.service('dataService', function($http, $q, $state, $location) {
             method: 'GET',
             url: '/api/post'
         }).then(function(response) {
+            response = response.data;
+            for(var i = 0; i < response.length; i++) {
+                response[i]['timeOn'] = moment(response[i].createdAt).fromNow()
+            }
+            console.log(response);
             dfd.resolve(response)
         }), function(error) {
             console.log('Error', error);
@@ -19,6 +24,11 @@ app.service('dataService', function($http, $q, $state, $location) {
             method: 'GET',
             url: '/api/post?user=' + userId
         }).then(function(response) {
+            response = response.data;
+            for(var i = 0; i < response.length; i++) {
+                var b = moment(response[i].createdAt).add(30, 'days');
+                response[i]['expires'] = moment(response[i].createdAt).to(b);
+            }
             dfd.resolve(response)
         }), function(error) {
             console.log('Error', error);
@@ -128,6 +138,25 @@ app.service('dataService', function($http, $q, $state, $location) {
     //   });
       return dfd.promise;
     };
+
+/*
+*  Photo upload stuff
+*/
+
+
+    this.storeImage = function (imageData, fileName) {
+        var imageExtension = imageData.split(';')[0].spllit('/');
+        imageExtension = imageExtension[imageExtension.length - 1];
+
+        var newImage = {
+            imageName: fileName,
+            imageBody: imageData,
+            imageExtension: imageExtension,
+            userEmail: 'test'
+        }
+        console.log(newImage);
+    }
+
 
 
 // before I broke it

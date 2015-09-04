@@ -37,4 +37,9 @@
     color: lime;
     display: inline-block; }
 
+.dashboard .dashboard_thumbnail {
+  height: 115px;
+  width: 115px;
+  display: inline-block; }
+
 /*# sourceMappingURL=main.css.map */

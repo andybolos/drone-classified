@@ -24,7 +24,13 @@ var postSchema = new mongoose.Schema({
         required: true,
         maxlength: 700
     },
+    img: [{
+        type: String,
+    }],
     createdAt: {
+        type: String,
+    },
+    expiresAt: {
         type: String,
     },
     user: {

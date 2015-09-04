@@ -5,8 +5,7 @@ app.controller('homeCtrl', function($scope, dataService) {
 
     $scope.getData = function() {
         dataService.getPosts().then(function(response) {
-            console.log(response.data);
-            $scope.posts = response.data
+            $scope.posts = response
         })
     }();
 
