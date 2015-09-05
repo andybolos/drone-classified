@@ -1,21 +1,30 @@
-<div class="">
-    <h1>Sign Up</h1>
-    <!-- Register New User -->
-    <form method="post">
-        <input type="text" name="firstname" placeholder="First Name..." required="true" ng-model="form.firstname">
-        <input type="text" name="lastname" placeholder="Last Name..." required="true" ng-model="form.lastname">
-        <input type="text" name="email" placeholder="Email..." required="true" ng-model="form.email">
-        <input type="text" name="password" placeholder="Password..." required="true" ng-model="form.password">
-        <!-- <input type="button" name="name" value="Sign Up" placeholder=""> -->
-        <input type="submit" name="name" value="Register" ng-click="register(form)">
-    </form>
-    <h1>Login</h1>
-    <!-- Login as a User -->
-    <form method="post">
-        <input type="text" name="email" placeholder="Email..." required="true" ng-model="user.email">
-        <input type="text" name="password" placeholder="Password..." required="true" ng-model="user.password">
-        <input type="submit" name="login" value="Login" ng-click="login(user)">
-    </form>
+<div class="header">
+    <h1>Drones N Stuff</h1>
+    <h2>Buy Fly Repeat</h2><br>
+</div>
+
+<div class="login_main">
+    <div class="login_left">
+        <h1>Login</h1>
+        <!-- Login as a User -->
+        <form method="post">
+            <input type="text" name="email" placeholder="Email..." required="true" ng-model="user.email"><br>
+            <input type="text" name="password" placeholder="Password..." required="true" ng-model="user.password"><br>
+            <input type="submit" name="login" value="Login" ng-click="login(user)" class="button"><br>
+        </form>
+    </div>
+    <div class="login_right">
+        <h1>Sign Up</h1>
+        <!-- Register New User -->
+        <form method="post">
+            <input type="text" name="firstname" placeholder="First Name..." required="true" ng-model="form.firstname"><br>
+            <input type="text" name="lastname" placeholder="Last Name..." required="true" ng-model="form.lastname"><br>
+            <input type="text" name="email" placeholder="Email..." required="true" ng-model="form.email"><br>
+            <input type="text" name="password" placeholder="Password..." required="true" ng-model="form.password"><br>
+            <!-- <input type="button" name="name" value="Sign Up" placeholder=""> -->
+            <input type="submit" name="name" value="Register" ng-click="register(form)" class="button"><br>
+        </form>
+    </div>
 
 
 </div>

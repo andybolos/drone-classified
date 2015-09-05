@@ -20,10 +20,10 @@ app.controller('dashboardCtrl', function($scope, dataService, currentUser) {
         newPost.createdAt = moment();
         console.log(newPost);
         dataService.addPost(newPost).then(function(response) {
-
+            getUserPosts();
             console.log(response);
         });
-        getUserPosts();
+
         // $scope.getUserPosts = function() {
             // })
         // $scope.getUserPosts();

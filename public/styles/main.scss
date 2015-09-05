@@ -2,80 +2,219 @@
 
 @import "reset.css";
 
+html, body {
 
+    color: #22313f;
+
+}
 
 // Begin mobile first styles //
+
+
 .header {
-    padding: 10px;
-    text-align: center;
+    position: relative;
+    // outline: red 1px solid;
+    margin-top: 30px;
+    height: 150px;
 
     h1{
         font-size: 56px;
-        font-weight: bold;
-        margin: 10px;
+        padding: 10px;
+        text-align: center;
     }
 
-    p {
-        padding: 10px;
-        margin: 10px;
+    h2 {
         font-size: 36px;
-        outline: red solid 1px;
-        display: inline;
+        // outline: red solid 1px;
+        text-align: center;
+    }
+    h3 {
+        position: absolute;
+        bottom: 55px;
+        right: 40px;
+    }
+    h4 {
+        position: absolute;
+        bottom: 45px;
+        right: 40px;
     }
     a {
         text-decoration: none;
-        color: green;
-    }
-
-    .signup {
-        padding: 5px;
-        background: lime;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 1.5em;
+        font-size: 18px;
     }
 }
-
-
 
 .home {
 
-    padding: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    height: 100%;
+    max-width: 1000px;
+    // outline: green 1px solid;
+    display: flex;
+    margin: auto;
 
+    .left_box {
+        width: 30%;
+        display: inline-flex;
 
-    .block_list {
-        outline: red 1px solid;
-        color: blue;
-        padding: 10px;
-        position: relative;
+        .filter {
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #95A5A6;
+            border-radius: 5px;
+            height: 100%;
 
-        .thumbnail {
-            height: 115px;
-            width: 115px;
-            display: inline-block;
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 30px;
+            }
+            h3 {
+                margin: 20px;
+            }
+            input {
+                margin-left: 40px;
+            }
+            label {
+                font-size: 18px;
+                padding: 10px;
+            }
+            button {
+                width: 100px;
+                height: 36px;
+                font-family: "Helvetica";
+                background-color: #202020;
+                border: none;
+                box-shadow: none;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
         }
 
-        .list {
-            display: inline-block;
-            position: absolute;
-            top: 10px;
+    }
 
-            .title {
+    .right_box {
+        width: 79%;
+
+        .block_list {
+            padding: 10px;
+            border: 1px solid #95A5A6;
+            border-radius: 5px;
+            height: 100%;
+            margin: 10px;
+            vertical-align: middle;
+            position: relative;
+
+
+            .thumbnail {
+                height: 115px;
+                width: 115px;
+                display: inline-block;
+                border-radius: 3px;
+                border: 1px solid #202020;
+
+            }
+
+            .top_list {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                p {
+                    vertical-align: top;
+                    font-size: 24px;
+                    padding: 10px 50px 0 0;
+
+                }
+
+
+                // height: 115px;
+
+            }
+            .post {
+                font-weight: lighter;
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+
 
             }
         }
-    }
-    .filter {
-        outline: red 1px solid;
-        color: lime;
-        display: inline-block;
-
 
     }
 }
 
+.login_main {
+    font-size: 18px;
+    height: 100%;
+    max-width: 1000px;
+    display: flex;
+    margin: auto;
+
+    h1 {
+        font-size: 36px;
+        margin: 30px 0 15px 0;
+    }
+
+    .login_left {
+        width: 50%;
+        text-align: center;
+        border-right: solid 1px #202020;
+
+    }
+
+    .login_right {
+        width: 50%;
+        text-align: center;
+    }
+
+    input {
+        margin: 10px;
+        padding: 7px;
+        width: 220px;
+    }
+
+    .button {
+        width: 100px;
+        height: 36px;
+        font-family: "Helvetica";
+        background-color: #202020;
+        border: none;
+        box-shadow: none;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .button:hover {
+        width: 100px;
+        height: 36px;
+        font-family: "Helvetica";
+        background-color: #141414;
+        border: none;
+        box-shadow: none;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+
+}
+
+
+
+
+
+
+
+
 .dashboard {
+
         .dashboard_thumbnail {
             height: 115px;
             width: 115px;

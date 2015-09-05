@@ -1,47 +1,140 @@
 @import url(reset.css);
+html, body {
+  color: #22313f; }
+
 .header {
-  padding: 10px;
-  text-align: center; }
+  position: relative;
+  margin-top: 30px;
+  height: 150px; }
   .header h1 {
     font-size: 56px;
-    font-weight: bold;
-    margin: 10px; }
-  .header p {
     padding: 10px;
-    margin: 10px;
+    text-align: center; }
+  .header h2 {
     font-size: 36px;
-    outline: red solid 1px;
-    display: inline; }
+    text-align: center; }
+  .header h3 {
+    position: absolute;
+    bottom: 55px;
+    right: 40px; }
+  .header h4 {
+    position: absolute;
+    bottom: 45px;
+    right: 40px; }
   .header a {
     text-decoration: none;
-    color: green; }
-  .header .signup {
-    padding: 5px;
-    background: lime;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 1.5em; }
+    font-size: 18px; }
 
 .home {
-  padding: 10px;
-  font-size: 24px; }
-  .home .block_list {
-    outline: red 1px solid;
-    color: blue;
-    padding: 10px;
-    position: relative; }
-    .home .block_list .thumbnail {
-      height: 115px;
-      width: 115px;
-      display: inline-block; }
-    .home .block_list .list {
-      display: inline-block;
-      position: absolute;
-      top: 10px; }
-  .home .filter {
-    outline: red 1px solid;
-    color: lime;
-    display: inline-block; }
+  font-size: 18px;
+  height: 100%;
+  max-width: 1000px;
+  display: flex;
+  margin: auto; }
+  .home .left_box {
+    width: 30%;
+    display: inline-flex; }
+    .home .left_box .filter {
+      margin-top: 10px;
+      padding: 20px;
+      border: 1px solid #95A5A6;
+      border-radius: 5px;
+      height: 100%; }
+      .home .left_box .filter h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 30px; }
+      .home .left_box .filter h3 {
+        margin: 20px; }
+      .home .left_box .filter input {
+        margin-left: 40px; }
+      .home .left_box .filter label {
+        font-size: 18px;
+        padding: 10px; }
+      .home .left_box .filter button {
+        width: 100px;
+        height: 36px;
+        font-family: "Helvetica";
+        background-color: #202020;
+        border: none;
+        box-shadow: none;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer; }
+  .home .right_box {
+    width: 79%; }
+    .home .right_box .block_list {
+      padding: 10px;
+      border: 1px solid #95A5A6;
+      border-radius: 5px;
+      height: 100%;
+      margin: 10px;
+      vertical-align: middle;
+      position: relative; }
+      .home .right_box .block_list .thumbnail {
+        height: 115px;
+        width: 115px;
+        display: inline-block;
+        border-radius: 3px;
+        border: 1px solid #202020; }
+      .home .right_box .block_list .top_list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between; }
+        .home .right_box .block_list .top_list p {
+          vertical-align: top;
+          font-size: 24px;
+          padding: 10px 50px 0 0; }
+      .home .right_box .block_list .post {
+        font-weight: lighter;
+        position: absolute;
+        bottom: 10px;
+        right: 10px; }
+
+.login_main {
+  font-size: 18px;
+  height: 100%;
+  max-width: 1000px;
+  display: flex;
+  margin: auto; }
+  .login_main h1 {
+    font-size: 36px;
+    margin: 30px 0 15px 0; }
+  .login_main .login_left {
+    width: 50%;
+    text-align: center;
+    border-right: solid 1px #202020; }
+  .login_main .login_right {
+    width: 50%;
+    text-align: center; }
+  .login_main input {
+    margin: 10px;
+    padding: 7px;
+    width: 220px; }
+  .login_main .button {
+    width: 100px;
+    height: 36px;
+    font-family: "Helvetica";
+    background-color: #202020;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer; }
+  .login_main .button:hover {
+    width: 100px;
+    height: 36px;
+    font-family: "Helvetica";
+    background-color: #141414;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px; }
 
 .dashboard .dashboard_thumbnail {
   height: 115px;
