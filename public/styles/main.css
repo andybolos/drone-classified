@@ -1,12 +1,17 @@
 @import url(reset.css);
 .header {
-  outline: red 1px solid;
-  color: red;
-  font-size: 24px;
   padding: 10px;
   text-align: center; }
-  .header p {
+  .header h1 {
+    font-size: 56px;
+    font-weight: bold;
     margin: 10px; }
+  .header p {
+    padding: 10px;
+    margin: 10px;
+    font-size: 36px;
+    outline: red solid 1px;
+    display: inline; }
   .header a {
     text-decoration: none;
     color: green; }
@@ -14,7 +19,8 @@
     padding: 5px;
     background: lime;
     border-radius: 5px;
-    color: #fff; }
+    color: #fff;
+    font-size: 1.5em; }
 
 .home {
   padding: 10px;

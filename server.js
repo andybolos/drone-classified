@@ -15,15 +15,19 @@ var cookieParser = require('cookie-parser');
 var LocalStrategy = require('passport-local');
 var bcrypt = require('bcrypt');
 
+
 //**********  Controllers  **********//
 
 var UserCtrl = require('./api/controllers/UserCtrl');
 var PostCtrl = require('./api/controllers/PostCtrl');
 var topSecret = require('./api/keys/keys');
+var ImgCtrl = require('./api/controllers/ImgCtrl');
 
 //**********  User Model  **********//
 
 var User = require('./api/models/User');
+
+
 
 //**********  Start Express  **********//
 
@@ -43,8 +47,13 @@ app.use(flash());
 //**********  Middleware  **********//
 
 app.use(express.static('./public'))
-app.use(bodyParser());
+// app.use(bodyParser());
 app.use(cors());
+
+//**********  Larger Files  **********//
+
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({limit: '50mb'}));
 
 /*
 ** Local Strategy
@@ -52,13 +61,9 @@ app.use(cors());
 
 var isAuthed = function (req, res, next) {
     if (req.isAuthenticated()) {
-        //console.log(req);
-        // currentUser = req.user;
-        /*  console.log('authenticated:')
-        console.log(currentUser.name)*/
         return next();
     }
-    console.log('Not authenticated');
+    // console.log('Not authenticated');
     res.status(401).send("User not authorized.");
 }
 
@@ -73,7 +78,7 @@ passport.use('local-login', new LocalStrategy({
     usernameField: 'email'
 },
     function(email, password, done) {
-        console.log(email, password);
+        // console.log(email, password);
         User.findOne({ email: email }, function(err, user) {
             if (err) { return done(err); }
             if (!user) { return done(null, false); }
@@ -83,23 +88,11 @@ passport.use('local-login', new LocalStrategy({
     }
 ));
 
-// passport.use('local-register', new LocalStrategy({
-//     // usernameField: 'email',
-//     passReqToCallback: true
-// },
-//     function(req, password, done) {
-//         console.log(req);
-//         User.create().then(function(result) {
-//             return done (null, result);
-//         });
-//     }
-// ));
 passport.use('local-register', new LocalStrategy({
     usernameField: 'email',
     passReqToCallback: true
 },
     function(req, email, password, done) {
-        console.log(email, password);
         User.findOne({ email: email }, function(err, user) {
             if (err) { return done(err); }
             if (user) { return done(null, false); }
@@ -134,7 +127,7 @@ passport.deserializeUser(function(id, done) {
 app.post('/api/login', passport.authenticate('local-login', {
     failureRedirect: '/signup'}),
     function(req, res) {
-        console.log(req.user);
+        // console.log(req.user);
         res.json(req.user)
     }
 );
@@ -153,23 +146,13 @@ app.get('/logout', function(req, res) {
 
 app.post('/api/register', passport.authenticate('local-register', { failureRedirect: '/signup'}),
     function(req, res) {
-        console.log(req.user);
         res.json(req.user)
     }
 );
- // app.post('/api/user', UserCtrl.create);
+
 app.get('/api/user', isAuthed, UserCtrl.read);
 app.get('/api/user/:id', isAuthed, UserCtrl.read);
 app.put('/api/user/:id', isAuthed, UserCtrl.read);
-
-//
-// /*
-// New User filter
-// */
-// app.get('/api/user', UserCtrl.read)
-//
-// app.put('/api/user/:id', UserCtrl.update);
-// app.delete('/api/user/:id', UserCtrl.delete);
 
 //**********  Post  **********//
 

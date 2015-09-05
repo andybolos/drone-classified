@@ -37,7 +37,9 @@ app.service('dataService', function($http, $q, $state, $location) {
     };
 
     this.addPost = function(newPost) {
+        newPost.img = this.tempImg;
         console.log('newPost', newPost);
+
         var dfd = $q.defer();
         $http({
             method: 'POST',
@@ -46,7 +48,11 @@ app.service('dataService', function($http, $q, $state, $location) {
         }).then(function(response) {
             console.log(response.data);
             dfd.resolve(response.data)
+        }).catch(function (err) {
+            console.error(err);
+            dfd.reject(err);
         })
+
         return dfd.promise;
     };
 
@@ -145,7 +151,7 @@ app.service('dataService', function($http, $q, $state, $location) {
 
 
     this.storeImage = function (imageData, fileName) {
-        var imageExtension = imageData.split(';')[0].spllit('/');
+        var imageExtension = imageData.split(';')[0].split('/');
         imageExtension = imageExtension[imageExtension.length - 1];
 
         var newImage = {
@@ -154,26 +160,14 @@ app.service('dataService', function($http, $q, $state, $location) {
             imageExtension: imageExtension,
             userEmail: 'test'
         }
+
+        this.tempImg = newImage;
+
+        // return $http.post('/api/newimage', newImage)
         console.log(newImage);
     }
 
 
 
-// before I broke it
-    // this.loginUser = function(userInfo) {
-    //     var dfd = $q.defer();
-    //     $http ({
-    //         method: 'POST',
-    //         url: '/api/login',
-    //         data: userInfo
-    //     }).then(function(response) {
-    //         console.log(response);
-    //
-    //         dfd.resolve(response)
-    //     }), function(error) {
-    //         console.log('Error', error);
-    //     }
-    //     return  dfd.promise;
-    // };
 
 });

@@ -33,6 +33,7 @@ app.controller('dashboardCtrl', function($scope, dataService, currentUser) {
         console.log(postEdit, 'userId', postId);
         dataService.updateUserPost(postId, postEdit).then(function(response) {
         })
+
     }
 
     $scope.getUserPosts = function(userId) {

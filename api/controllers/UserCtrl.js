@@ -21,7 +21,7 @@ module.exports = {
     },
 
     read: function(req, res) {
-        console.log('this is req.user!!: ', req.user);
+        // console.log('this is req.user!!: ', req.user);
         User.find(req.user)
         .populate('Post')
         .exec(function(err, result) {
@@ -35,8 +35,8 @@ module.exports = {
 
     update: function(req, res) {
         User.findByIdAndUpdate (req.params.id, req.body, function(err, result) {
-            console.log('Have I made it here? This is', req.params.id);
-            console.log('This is the req.body', req.body);
+            // console.log('Have I made it here? This is', req.params.id);
+            // console.log('This is the req.body', req.body);
             if(!err) {
                 res.send(result);
             } else {

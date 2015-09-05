@@ -1,13 +1,20 @@
 var Post = require('../models/Post');
+var ImgCtrl = require('./ImgCtrl')
 
 module.exports = {
 
     create: function(req, res) {
+        var image = req.body.img;
+        delete req.body.img;
+
         var newPost = new Post(req.body);
-        console.log(req.body);
         newPost.save(function(err, result) {
             if(!err) {
-                res.send(result);
+                // save the image to amazon
+                // ImgCtrl.saveImage(req, res, result)
+                
+                ImgCtrl.saveImage(req, res, result, image)
+                // res.send(result);
             } else {
                 return res.status(500).send(err);
             }
