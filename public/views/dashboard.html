@@ -1,10 +1,14 @@
 <div class="dashboard">
-    <h1>My Listings Dashboard</h1><br>
-    <h2><a href="/logout">Logout</a></h2><br>
-    <h1>User: {{ user.firstname | uppercase }} {{ user.lastname | uppercase}}</h1>
-    <a href="#/home">Home</a>
-    <h1>New Listing</h1>
-        <form class="" ng-model="newPost">
+    <div class="dashboard_header">
+        <h2>Welcome {{ user.firstname | uppercase }} {{ user.lastname | uppercase}}</h1>
+        <h2><a href="/logout">Logout</a></h2>
+        <h2><a href="#/home">Home</a></h2>
+        <h1>Dashboard</h1>
+        <h3>My Listings</h3>
+        <h1><button ng-click="newishPost = !newishPost" ng-hide="newishPost">Create New Listing</button></h1>
+    </div>
+
+        <form class="new_post" ng-model="newPost" ng-show="newishPost">
             <input type="text" placeholder="Title" ng-model="newPost.title">
             <select class="" name="" ng-model="newPost.category">
                 <option value="new">New</option>
@@ -16,33 +20,33 @@
             <input type="button" name="name" value="Add Listing" ng-click="addUserPost(newPost)">
         </form>
 
-    <h2>My Listings</h2><br>
     <div class="posts" ng-repeat="post in posts">
-        <ul ng-hide="editPost">
-            <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>
-            <li>Title: {{ post.title }}</li>
-            <li>Price: ${{ post.price }}</li>
-            <li>Category: {{ post.category }}</li>
-            <li>Description: {{ post.description }}</li>
-            <li>Expires: {{ post.expires }}</li>
-            <img ng-src="{{ post.img[0] }}" class="dashboard_thumbnail" />
-        </ul>
-        <ul ng-hide="!editPost">
-            <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>
-            <li>Title: <input type="text" name="name" value="{{ post.title }}" ng-model="post.title"></li>
-            <li>Price: <input type="number" name="name" value="{{ post.price }}" ng-model="post.price"></li>
-            <li>Category: <select class="" name="" ng-model="post.category">
-                <option value="new">New</option>
-                <option value="used">Used</option>
-            </select><li>
-            <li>Description: <textarea name="name" rows="8" cols="40" ng-model="post.description">{{ post.description }}</textarea></li>
-        </ul>
-        <button ng-click="deleteUserPost(post._id)">Destroy</button>
-        <button ng-click="editPost = !editPost" ng-hide="editPost">Edit</button>
-        <button ng-hide="!editPost" ng-click="editPost = !editPost">Just Kidding</button>
-        <button ng-hide="!editPost"  ng-click="updateUserPost(post._id, post); editPost = !editPost" >Save</button>
-        <br><br>
-
+        <div class="post_card">
+                <ul ng-hide="editPost">
+                    <li>Title: {{ post.title }}</li>
+                    <li>Price: ${{ post.price }}</li>
+                    <li>Category: {{ post.category }}</li>
+                    <li>Description: {{ post.description }}</li>
+                    <li>Expires: {{ post.expires }}</li>
+                    <img ng-src="{{ post.img[0] }}" class="dashboard_thumbnail" />
+                </ul>
+            <ul ng-hide="!editPost">
+                <li>User: {{ post.user.firstname | uppercase }} {{ post.user.lastname | uppercase}}</li>
+                <li>Title: <input type="text" name="name" value="{{ post.title }}" ng-model="post.title"></li>
+                <li>Price: <input type="number" name="name" value="{{ post.price }}" ng-model="post.price"></li>
+                <li>Category: <select class="" name="" ng-model="post.category">
+                    <option value="new">New</option>
+                    <option value="used">Used</option>
+                </select><li>
+                <li>Description: <textarea name="name" rows="8" cols="40" ng-model="post.description">{{ post.description }}</textarea></li>
+            </ul>
+            <div class="controls">
+                <button class="post_button" ng-click="deleteUserPost(post._id)">Destroy</button>
+                <button class="post_button" ng-click="editPost = !editPost" ng-hide="editPost">Edit</button>
+                <button class="post_button" ng-hide="!editPost" ng-click="editPost = !editPost">Just Kidding</button>
+                <button class="post_button" ng-hide="!editPost"  ng-click="updateUserPost(post._id, post); editPost = !editPost" >Save</button>
+            </div>
+        </div>
     </div>
 
 </div>

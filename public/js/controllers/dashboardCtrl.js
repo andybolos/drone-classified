@@ -23,9 +23,10 @@ app.controller('dashboardCtrl', function($scope, dataService, currentUser) {
             getUserPosts();
             console.log(response);
         });
+        getUserPosts();
 
         // $scope.getUserPosts = function() {
-            // })
+        //     })
         // $scope.getUserPosts();
     };
 
@@ -49,6 +50,12 @@ app.controller('dashboardCtrl', function($scope, dataService, currentUser) {
         getUserPosts();
     }
 
+
+    $scope.modalShown = false;
+    $scope.toggleModal = function() {
+        $scope.modalShown = !$scope.modalShown;
+        console.log("ouch");
+    };
 
 
 });

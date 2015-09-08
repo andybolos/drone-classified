@@ -26,8 +26,11 @@
                 <img ng-src="{{ post.img[0] }}" alt="Thumbnail" class="thumbnail" />
                 <p>{{ post.title }} </p>
                 <p>${{ post.price }}</p>
-
             </div>
+            <br><br>
+            <h5><span class="bold">Category:</span> {{ post.category | uppercase }}</h5><br>
+            <h5><span class="bold">Description:</span> {{ post.description }}</h5>
+            <br><br>
             <h6 class="post">Posted: {{ post.timeOn }}</h6>
         </div>
     </div>
